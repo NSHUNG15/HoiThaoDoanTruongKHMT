@@ -149,13 +149,11 @@ const subTypeOptions = {
     badminton: [
         'Cá nhân nam',     
         'Cá nhân nữ',      
-        'Đôi nam',         
         'Đôi nam nữ'       
     ],
     football: ['Đội nam'],
-    basketball: ['Đội nam', 'Đội nữ'],
-    volleyball: ['Đội nam'],
-    billiard: ['Billiards 15 bóng', 'Billiard 3 băng', 'Billiard 3 bi tự do']
+    volleyball: ['Chạy nhanh', 'Chạy bền'],
+    billiard: ['Cờ tướng', 'Cờ vua']
 };
 
 // Prices Configuration
@@ -164,13 +162,9 @@ const prices = {
         amount: 1500000,
         note: "Phí cho cả đội"
     },
-    basketball: {
-        amount: 1000000,
-        note: "Phí cho cả đội"
-    },
     volleyball: {
-        amount: 1200000,
-        note: "Phí cho cả đội"
+        amount: 100000,
+        note: "Phí theo người"
     },
     badminton: {
         'Cá nhân nam': {
@@ -181,28 +175,20 @@ const prices = {
             amount: 150000,
             note: "Phí theo người"
         },
-        'Đôi nam': {
-            amount: 300000,
-            note: "Phí theo đôi"
-        },
         'Đôi nam nữ': {
             amount: 300000,
             note: "Phí theo đôi"
         }
     },
     billiard: {
-        'Billiards 15 bóng': {
-            amount: 130000,
+        'Cờ tướng': {
+            amount: 50000,
             note: "Phí theo người"
         },
-        'Billiard 3 băng': {
-            amount: 130000,
+        'Cờ vua': {
+            amount: 50000,
             note: "Phí theo người"
         },
-        'Billiard 3 bi tự do': {
-            amount: 130000,
-            note: "Phí theo người"
-        }
     }
 };
 
@@ -338,14 +324,14 @@ sportType.addEventListener('change', function() {
         rulesContainer.classList.remove('active');
         
         // Handle team fields visibility
-        const isTeamSport = ['football', 'basketball', 'volleyball'].includes(this.value);
+        const isTeamSport = ['football', 'basketball',].includes(this.value);
         teamListContainer.style.display = isTeamSport ? 'block' : 'none';
         teamNameContainer.style.display = isTeamSport ? 'block' : 'none';
         document.getElementById('teamList').required = isTeamSport;
         document.getElementById('teamName').required = isTeamSport;
         
         // Update price display
-        if (this.value === 'billiard' || this.value === 'badminton') {
+        if (this.value === 'billiard' || this.value === 'badminton' || this.value === 'volleyball') {
             const firstType = subTypeOptions[this.value][0];
             const price = prices[this.value][firstType];
             priceAmount.textContent = formatCurrency(price.amount);
