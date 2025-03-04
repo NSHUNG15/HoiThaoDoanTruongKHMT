@@ -167,6 +167,7 @@ font-weight: 500;
 }
 
 .section {
+    margin-top: var(--spacing-xl);
 background: var(--white);
 border-radius: var(--radius-lg);
 padding: var(--spacing-xl);
@@ -735,6 +736,7 @@ transform: scale(1.05);
 
 /* Deadline Alert Styles */
 .deadline-alert {
+margin-top: var(--spacing-xl);
 background: linear-gradient(to right, #fee2e2, #fecaca);
 color: var(--primary-red);
 padding: var(--spacing-md);
