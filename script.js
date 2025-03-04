@@ -330,7 +330,7 @@ sportType.addEventListener('change', function() {
         rulesContainer.classList.remove('active');
         
         // Handle team fields visibility
-        const isTeamSport = ['football', 'badminton-double',].includes(this.value);
+        const isTeamSport = ['football'].includes(this.value);
         teamListContainer.style.display = isTeamSport ? 'block' : 'none';
         teamNameContainer.style.display = isTeamSport ? 'block' : 'none';
         document.getElementById('teamList').required = isTeamSport;
@@ -359,6 +359,7 @@ sportType.addEventListener('change', function() {
     } else {
         rulesContainer.classList.add('active');
     }
+    updateQRText();
 });
 
 subType.addEventListener('change', function() {
@@ -373,7 +374,7 @@ subType.addEventListener('change', function() {
         document.getElementById('teamName').required = isDoubleType;
     }
 
-    if ((currentSport === 'chess' || currentSport === 'badminton') && currentType) {
+    if ((currentSport === 'chess' || currentSport === 'badminton' || currentSport ==='athletics') && currentType) {
         const price = prices[currentSport][currentType];
         priceAmount.textContent = formatCurrency(price.amount);
         priceNote.textContent = price.note;
@@ -406,7 +407,6 @@ form.addEventListener('submit', async function(e) {
     submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Đang xử lý...';
 
     try {
-        // Validations
         const sportValue = sportType.value;
         const subTypeValue = subType.value;
         
@@ -418,7 +418,7 @@ form.addEventListener('submit', async function(e) {
             throw new Error('Vui lòng chọn hình thức thi đấu!');
         }
 
-        const isTeamSport = ['football', 'badminton-double', 'athletics'].includes(sportValue);
+        const isTeamSport = ['football'].includes(sportValue);
         const isBadmintonDouble = sportValue === 'badminton' && subTypeValue.includes('Đôi');
         
         if (isTeamSport || isBadmintonDouble) {
@@ -548,7 +548,7 @@ function updateQRText() {
     const sportName = sportType.options[sportType.selectedIndex].text;
     let price;
     
-    if (sportType.value === 'chess' || sportType.value === 'badminton') {
+    if (sportType.value === 'chess' || sportType.value === 'badminton' || sportType.value === 'athletics') {
         if (subType.value) {
             price = prices[sportType.value][subType.value].amount;
         }
@@ -556,6 +556,11 @@ function updateQRText() {
         price = prices[sportType.value].amount;
     }
 
+    if (sportType.value === 'football') {
+        price = prices.football.amount;  
+    } else if (sportType.value && subType.value) {
+        price = prices[sportType.value]?.[subType.value]?.amount || 0;
+    }
     if (price) {
         qrText.innerHTML = `
             <div style="margin-bottom: 10px;">${nameInput.value} - ${sportName}${subType.value ? ` - ${subType.value}` : ''}</div>
@@ -565,3 +570,4 @@ function updateQRText() {
         `;
     }
 }
+
