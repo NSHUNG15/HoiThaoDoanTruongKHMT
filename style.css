@@ -688,7 +688,7 @@ animation: fadeIn 0.3s ease-out;
 .price-title {
 font-weight: 600;
 font-size: 1.1em;
-color: var(--primary-white);
+color: black;
 margin-bottom: var(--spacing-sm);
 }
 
