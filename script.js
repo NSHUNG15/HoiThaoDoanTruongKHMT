@@ -1,4 +1,3 @@
-    // Modal handling
 const showRulesBtn = document.getElementById('showRulesBtn');
 const rulesModal = document.getElementById('rulesModal');
 const closeModal = document.querySelector('.close-modal');
@@ -9,27 +8,27 @@ const rulesDownload = document.getElementById('rulesDownload');
 const templateDownload = document.getElementById('templateDownload');
 const downloadTitle = document.getElementById('downloadTitle');
 
-// Cập nhật cấu hình download links
+
 const downloadLinks = {
     football: {
         rules: 'export?format=pdf',
         template: '',
         title: 'Bóng đá'
     },
-    volleyball: {  // Thay basketball thành volleyball
+    athletics: {
         rules: '',
         template: '',
-        title: 'Bóng chuyền'
+        title: 'Điền kinh'
     },
     badminton: {
         rules: '',
         template: '',
         title: 'Cầu lông'
     },
-    billiard: {
+    chess: {
         rules: '',
         template: '',
-        title: 'Billiards'
+        title: 'Đánh cờ'
     }
 };
 
@@ -38,10 +37,8 @@ showRulesBtn.addEventListener('click', () => {
     rulesModal.classList.add('active');
     document.body.style.overflow = 'hidden';
     
-    // Kiểm tra nếu đã chọn môn thể thao ở form chính
     const selectedSport = sportType.value;
     if (selectedSport) {
-        // Tự động chọn môn thể thao trong modal và hiển thị tài liệu
         downloadType.value = selectedSport;
         updateDownloadSection(selectedSport);
     } else {
@@ -53,12 +50,12 @@ showRulesBtn.addEventListener('click', () => {
 });
 function nextPage() {
     document.querySelector(".next-btn").addEventListener("click", function () {
-        const page = document.querySelector(".header"); // Hoặc phần nội dung chính
-        page.classList.add("fade-out"); // Thêm hiệu ứng
+        const page = document.querySelector(".header"); 
+        page.classList.add("fade-out"); 
 
         setTimeout(() => {
-            window.location.href = "next-page.html"; // Chuyển trang sau hiệu ứng
-        }, 600); // Đợi hiệu ứng hoàn tất
+            window.location.href = "next-page.html"; 
+        }, 600); 
     });
 }
 closeModal.addEventListener('click', closeModalHandler);
@@ -83,7 +80,6 @@ function closeModalHandler() {
     document.body.style.overflow = '';
 }
 
-// Hàm cập nhật phần tải về
 function updateDownloadSection(sportValue) {
     if (sportValue) {
         const sportData = downloadLinks[sportValue];
@@ -100,12 +96,10 @@ function updateDownloadSection(sportValue) {
     }
 }
 
-// Download handling
 downloadType.addEventListener('change', function() {
     updateDownloadSection(this.value);
 });
 
-// Download validation
 [rulesDownload, templateDownload].forEach(link => {
     link.addEventListener('click', function(e) {
         if (!downloadType.value) {
@@ -137,7 +131,6 @@ const GOOGLE_FORM = {
         billUrl: 'entry.804108177'
     }
 };
-// DOM Elements
 const sportType = document.getElementById('sportType');
 const subTypeContainer = document.getElementById('subTypeContainer');
 const subType = document.getElementById('subType');
@@ -153,7 +146,6 @@ const teamNameContainer = document.getElementById('teamNameContainer');
 const rulesContainer = document.getElementById('rulesContainer');
 const billInput = document.getElementById('bill');
 
-// Sport Types Configuration
 const subTypeOptions = {
     badminton: [
         'Cá nhân nam',     
@@ -161,19 +153,24 @@ const subTypeOptions = {
         'Đôi nam nữ'       
     ],
     football: ['Đội nam'],
-    volleyball: ['Chạy nhanh', 'Chạy bền'],
-    billiard: ['Cờ tướng', 'Cờ vua']
+    athletics: ['Chạy nhanh', 'Chạy bền'],
+    chess: ['Cờ tướng', 'Cờ vua']
 };
 
-// Prices Configuration
 const prices = {
     football: {
         amount: 1500000,
         note: "Phí cho cả đội"
     },
-    volleyball: {
-        amount: 100000,
-        note: "Phí theo người"
+    athletics: {
+        'Chạy nhanh': {
+            amount: 100000,
+            note: "Phí theo người"
+        },
+        'Chạy bền': {
+            amount: 100000,
+            note: "Phí theo người"
+        },
     },
     badminton: {
         'Cá nhân nam': {
@@ -189,7 +186,7 @@ const prices = {
             note: "Phí theo đôi"
         }
     },
-    billiard: {
+    chess: {
         'Cờ tướng': {
             amount: 50000,
             note: "Phí theo người"
@@ -333,14 +330,14 @@ sportType.addEventListener('change', function() {
         rulesContainer.classList.remove('active');
         
         // Handle team fields visibility
-        const isTeamSport = ['football', 'basketball',].includes(this.value);
+        const isTeamSport = ['football', 'badminton-double',].includes(this.value);
         teamListContainer.style.display = isTeamSport ? 'block' : 'none';
         teamNameContainer.style.display = isTeamSport ? 'block' : 'none';
         document.getElementById('teamList').required = isTeamSport;
         document.getElementById('teamName').required = isTeamSport;
         
         // Update price display
-        if (this.value === 'billiard' || this.value === 'badminton' || this.value === 'volleyball') {
+        if (this.value === 'chess' || this.value === 'badminton' || this.value === 'athletics') {
             const firstType = subTypeOptions[this.value][0];
             const price = prices[this.value][firstType];
             priceAmount.textContent = formatCurrency(price.amount);
@@ -376,7 +373,7 @@ subType.addEventListener('change', function() {
         document.getElementById('teamName').required = isDoubleType;
     }
 
-    if ((currentSport === 'billiard' || currentSport === 'badminton') && currentType) {
+    if ((currentSport === 'chess' || currentSport === 'badminton') && currentType) {
         const price = prices[currentSport][currentType];
         priceAmount.textContent = formatCurrency(price.amount);
         priceNote.textContent = price.note;
@@ -421,8 +418,7 @@ form.addEventListener('submit', async function(e) {
             throw new Error('Vui lòng chọn hình thức thi đấu!');
         }
 
-        // Team validation
-        const isTeamSport = ['football', 'basketball', 'volleyball'].includes(sportValue);
+        const isTeamSport = ['football', 'badminton-double', 'athletics'].includes(sportValue);
         const isBadmintonDouble = sportValue === 'badminton' && subTypeValue.includes('Đôi');
         
         if (isTeamSport || isBadmintonDouble) {
@@ -457,7 +453,7 @@ form.addEventListener('submit', async function(e) {
             class: document.getElementById('class').value,
             email: document.getElementById('email').value,
             phone: document.getElementById('phone').value,
-            price: (sportValue === 'billiard' || sportValue === 'badminton')
+            price: (sportValue === 'chess' || sportValue === 'badminton')
                 ? prices[sportValue][subTypeValue].amount 
                 : prices[sportValue].amount,
             billUrl: billUrl
@@ -552,7 +548,7 @@ function updateQRText() {
     const sportName = sportType.options[sportType.selectedIndex].text;
     let price;
     
-    if (sportType.value === 'billiard' || sportType.value === 'badminton') {
+    if (sportType.value === 'chess' || sportType.value === 'badminton') {
         if (subType.value) {
             price = prices[sportType.value][subType.value].amount;
         }
