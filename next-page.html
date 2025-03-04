@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header-page">
+        <div class="header-page-content">
+            <img src="logo.png" alt="IT Logo" class="logo">
+            <div class="nd">
+                <h1>IT Champions League 2025</h1>
+                <p>Hội thao Đoàn trường Khoa học Máy tính - Đại học Duy Tân</p>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <section class="section">
+            <h2 class="section-title">Mục đích - Yêu cầu</h2>
+            <ul class="purpose-list">
+                <li class="purpose-item">
+                    <i class="fas fa-star"></i>
+                    <p>Thiết thực thúc đẩy tinh thần thể thao và rèn luyện sức khỏe của sinh viên.</p>
+                </li>
+                <li class="purpose-item">
+                    <i class="fas fa-users"></i>
+                    <p>Xây dựng môi trường, động lực cho sinh viên rèn luyện thể chất, cọ sát kỹ năng.</p>
+                </li>
+                <li class="purpose-item">
+                    <i class="fas fa-handshake"></i>
+                    <p>Nhằm tạo sân chơi lành mạnh cho các sinh viên của Trường Đào tạo Quốc Tế sau những giờ học trên lớp, tạo sự đoàn kết giao lưu giữa các thành viên.</p>
+                </li>
+                <li class="purpose-item">
+                    <i class="fas fa-heart"></i>
+                    <p>Là hoạt động sôi nổi, hấp dẫn và thiết thực, là sân chơi bổ ích, lành mạnh cho đoàn viên, hội viên và sinh viên.</p>
+                </li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Thông tin giải đấu</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-flag"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h4>Lễ Khai mạc</h4>
+                        <p>18h00 ngày 7 tháng 3 năm 2025</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h4>Địa điểm tổ chức</h4>
+                        <p>Sân bóng Trưng Vương – 403 Trưng Nữ Vương, Hòa Thuận Nam, Hải Châu, Đà Nẵng</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sport-icons">
+                <div class="sport-icon">
+                    <i class="fas fa-futbol"></i>
+                    <div class="title">Bóng đá</div>
+                    <div class="price">1.500.000đ/đội</div>
+                </div>
+                <div class="sport-icon">
+                    <i class="fas fa-table-tennis"></i>
+                    <div class="title">Cầu lông</div>
+                    <div class="price">150.000đ/người</div>
+                </div>
+                <div class="sport-icon">
+                    <i class="fas fa-volleyball-ball"></i>
+                    <div class="title">Điền kinh</div>
+                    <div class="price">100.000đ/người</div>
+                </div>
+                <div class="sport-icon">
+                    <i class="fas fa-futbol"></i>
+                    <div class="title">Đánh cờ</div>
+                    <div class="price">50.000đ/đội</div>
+                </div>
+            </div>
+        </section>
+
+        <div class="deadline-alert">
+            <i class="fas fa-exclamation-circle"></i>
+            Hạn đăng ký: 05/03/2025
+        </div>
+
+        <!-- Phần form đăng ký -->
+    <section class="section">
+        <h2 class="section-title">Đăng ký tham gia</h2>
+        <form id="registrationForm">
+            <div class="form-group">
+                <label class="form-label" for="sportType">Chọn môn thể thao:</label>
+                <select class="form-control" id="sportType" required>
+                    <option value="">-- Chọn môn --</option>
+                    <option value="football">Bóng đá</option>
+                    <option value="volleyball">Điền kinh</option>
+                    <option value="badminton">Cầu lông</option>
+                    <option value="billiard">Đánh cờ</option>
+                </select>
+            </div>
+
+            <!-- Phần quy định chung -->
+            <div id="rulesContainer" class="rules-container">
+                <div class="rules-section">
+                    <h3 class="rules-title">Quy định chung</h3>
+                    <ul class="rules-list">
+                        <li><i class="fas fa-ban"></i> Không được sử dụng chất kích thích khi thi đấu</li>
+                        <li><i class="fas fa-hand-fist"></i> Không gây gỗ đánh nhau</li>
+                        <li><i class="fas fa-comment-slash"></i> Không xúc phạm cầu thủ, trọng tài, khán giả</li>
+                        <li><i class="fas fa-scale-balanced"></i> Tôn trọng BTC, trọng tài</li>
+                    </ul>
+                </div>
+                
+                <div class="rules-section">
+                    <h3 class="rules-title">Hồ sơ đăng ký gồm</h3>
+                    <div class="registration-docs">
+                        <div class="doc-item">
+                            <i class="fas fa-file-lines"></i>
+                            <p>Danh sách các cầu thủ có dán ảnh và ghi đầy đủ họ và tên, mã sinh viên, Lớp (theo mẫu của BTC cung cấp) bao gồm: 01 Trưởng đoàn, 01 HLV và 10 VĐV</p>
+                        </div>
+                        <div class="doc-item">
+                            <i class="fas fa-id-card"></i>
+                            <p>Khi thi đấu mang theo <strong>THẺ SINH VIÊN</strong> để BTC kiểm tra, đối chiếu (BTC không nhận bất cứ giấy tờ nào khác để thay thế)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group" id="subTypeContainer" style="display: none;">
+                <label class="form-label" for="subType">Hình thức thi đấu:</label>
+                <select class="form-control" id="subType" required>
+                    <option value="">-- Chọn hình thức --</option>
+                </select>
+            </div>
+
+            <!-- Thêm phần nhập tên đội -->
+            <div class="form-group" id="teamNameContainer" style="display: none;">
+                <label class="form-label" for="teamName">Tên đội:</label>
+                <input class="form-control" type="text" id="teamName" 
+                    placeholder="Nhập tên đội của bạn" required>
+                <div class="form-note">
+                    <i class="fas fa-info-circle"></i>
+                    Tên đội không được trùng với các đội đã đăng ký
+                </div>
+            </div>
+
+            <div class="form-group" id="teamListContainer" style="display: none;">
+                <label class="form-label" for="teamList">Link Google Sheet danh sách đội:</label>
+                <input class="form-control" type="url" id="teamList" 
+                    placeholder="Nhập link Google Sheet danh sách đội">
+                <div class="form-note">
+                    <i class="fas fa-info-circle"></i>
+                    Mở quyền truy cập cho link Google Sheet, danh sách gồm:
+                    <ul>
+                        <li>Họ và tên</li>
+                        <li>Mã số sinh viên</li>
+                        <li>Số áo</li>
+                        <li>Ảnh</li>
+                        <li>Hồ sơ đăng kí (Tải file mẫu ở dưới chân trang)</li>
+                    </ul>
+                    <p class="important-note">
+                        <i class="fas fa-exclamation-circle"></i>
+                        Sử dụng cầu thủ thuộc trường Đào tạo Quốc tế để được chọn thi đấu cho giải cấp Đại Học Duy Tân sắp tới
+                    </p>
+                </div>
+            </div>
+
+            <div class="price-info" id="priceInfo">
+                <div class="price-title">Lệ phí tham gia</div>
+                <div class="price-amount" id="priceAmount"></div>
+                <div class="price-note" id="priceNote"></div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="name">Họ và tên (Đội trưởng):</label>
+                <input class="form-control" type="text" id="name" required>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="studentId">Mã số sinh viên:</label>
+                <input class="form-control" type="text" id="studentId" required>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="class">Lớp:</label>
+                <input class="form-control" type="text" id="class" required>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="email">Email:</label>
+                <input class="form-control" type="email" id="email" required>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="phone">Số điện thoại:</label>
+                <input class="form-control" type="tel" id="phone" required>
+            </div>
+
+            <div class="qr-container" id="qrContainer">
+                <h3>Quét mã QR để thanh toán</h3>
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/5F78F84E-FE1D-4206-8C63-0D809DA1A787_1_201_a-gUJNcakhCHh5tzQxCHgiiQmMHuFXNw.jpeg" alt="QR Code" class="qr-code">
+                <div id="qrText" style="margin-top: 15px; font-weight: bold;"></div>
+                <p style="margin-top: 15px; color: #666;">
+                    Vui lòng chuyển khoản với nội dung:<br>
+                    <strong>[Tên] - [Môn thi đấu]</strong>
+                </p>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="bill">Upload bill chuyển khoản:</label>
+                <input class="form-control" type="file" id="bill" accept="image/*" required>
+            </div>
+
+            <button type="submit" class="btn">
+                <i class="fas fa-paper-plane"></i>
+                Gửi đăng ký
+            </button>
+        </form>
+    </section>
+        <!-- Nút mở modal -->
+        <div class="sport-icon" id="showRulesBtn">
+            <i class="fas fa-download"></i>
+            <div class="title">Điều lệ & Mẫu đăng ký</div>
+            <div class="price">Tải về</div>
+        </div>
+    </div>
+
+
+    <!-- Modal -->
+    <div id="rulesModal" class="rules-modal">
+        <div class="rules-modal-content">
+            <div class="rules-modal-header">
+                <h2>Điều lệ & Mẫu đăng ký</h2>
+                <button class="close-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="rules-modal-body">
+                <!-- Quy định chung -->
+                <div class="purpose-list">
+                    <div class="purpose-item">
+                        <i class="fas fa-scroll"></i>
+                        <div>
+                            <h4>Quy định chung</h4>
+                            <ul class="rules-list">
+                                <li><i class="fas fa-check"></i> Không sử dụng chất kích thích khi thi đấu</li>
+                                <li><i class="fas fa-check"></i> Không gây gỗ, đánh nhau trong và ngoài sân</li>
+                                <li><i class="fas fa-check"></i> Tôn trọng trọng tài và Ban tổ chức</li>
+                                <li><i class="fas fa-check"></i> Có mặt đúng giờ theo lịch thi đấu</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phần chọn môn và tải -->
+                <div class="event-info">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-icon">
+                                <i class="fas fa-download"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <h4>Chọn môn thể thao để tải điều lệ và mẫu đăng ký</h4>
+                                <div class="form-group" style="margin-top: 15px;">
+                                <!-- Thay đổi trong phần select -->
+                                    <!-- Thay đổi trong phần select -->
+                                    <select class="form-control" id="downloadType">
+                                        <option value="">-- Chọn môn thể thao --</option>
+                                        <option value="football">Bóng đá</option>
+                                        <option value="volleyball">Bóng chuyền</option>
+                                        <option value="badminton">Cầu lông</option>
+                                        <option value="billiard">Bi-a</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="downloadSection" style="display: none;">
+                            <div class="timeline-item">
+                                <div class="timeline-icon">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <h4 id="downloadTitle"></h4>
+                                    <div class="sport-icons download-buttons">
+                                        <a href="#" id="rulesDownload" class="sport-icon">
+                                            <i class="fas fa-file-pdf"></i>
+                                            <div class="title">Điều lệ thi đấu</div>
+                                            <div class="price">PDF Document</div>
+                                        </a>
+                                        <a href="#" id="templateDownload" class="sport-icon">
+                                            <i class="fas fa-file-excel"></i>
+                                            <div class="title">Mẫu đăng ký</div>
+                                            <div class="price">Excel Template</div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="downloadNote" class="deadline-alert" style="display: none;">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Vui lòng đọc kỹ điều lệ trước khi đăng ký tham gia</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <p><a href="">IT Champions League 2025 - Hội thao Đoàn trường Khoa học Máy tính</a></p>
+        <p><a href="">Liên hệ Trưởng BTC: Thái Tiến Minh Nhật - </a><a href=""></a></p>
+        <p><a href="">Liên hệ Phó BTC: Bùi Thị Ngọc Ánh - </a><a href=""></a></p>
+        <p><a href="">Liên hệ Phó BTC: Nguyễn Sinh Hùng - </a><a href=""></a></p>
+        <p><a href="">dtu.doankhoacntt@gmail.com</a></p>
+        <p><a href="">Designed & Developed by Nguyễn Sinh Hùng</a></p>
+      </p>
+    </footer>
+    <script src="script.js"></script>
+
+</body>
+</html>

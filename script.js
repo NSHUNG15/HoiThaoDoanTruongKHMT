@@ -51,7 +51,16 @@ showRulesBtn.addEventListener('click', () => {
         downloadNote.style.display = 'none';
     }
 });
+function nextPage() {
+    document.querySelector(".next-btn").addEventListener("click", function () {
+        const page = document.querySelector(".header"); // Hoặc phần nội dung chính
+        page.classList.add("fade-out"); // Thêm hiệu ứng
 
+        setTimeout(() => {
+            window.location.href = "next-page.html"; // Chuyển trang sau hiệu ứng
+        }, 600); // Đợi hiệu ứng hoàn tất
+    });
+}
 closeModal.addEventListener('click', closeModalHandler);
 rulesModal.addEventListener('click', (e) => {
     if (e.target === rulesModal) {
